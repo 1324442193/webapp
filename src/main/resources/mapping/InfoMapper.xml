@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.demo.mapper.BookMapper">
+    <insert id="addBook" parameterType="com.demo.pojo.Book">
+        INSERT INTO book(name,author) VALUES (#{name},#{author})
+    </insert>
+
+    <delete id="deleteBookById" parameterType="java.lang.Integer">
+        DELETE FROM book where id=#{id}
+    </delete>
+
+    <update id="updateBookById" parameterType="com.demo.pojo.Book">
+        update book set name=#{name},author=#{author} where id=#{id}
+    </update>
+
+    <select id="getBookById" parameterType="java.lang.Integer" resultType="com.demo.pojo.Book">
+        SELECT * FROM book WHERE id=#{id}
+    </select>
+
+    <select id="getAllinfo" resultType="com.demo.pojo.Book">
+        SELECT * FROM book
+    </select>
+</mapper>
